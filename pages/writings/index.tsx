@@ -1,11 +1,10 @@
 import React from "react";
-import { allWritings as pages, type Writing } from "contentlayer/generated";
+import { allWritings as pages } from "contentlayer/generated";
 
 export default function Page() {
-  console.log({ pages });
   return (
     <>
-      <div>Text nextjs</div>
+      <h1>Text nextjs</h1>
       <ul>
         {pages.map((page) => {
           return (

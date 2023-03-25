@@ -4,7 +4,7 @@ import { useLiveReload, useMDXComponent } from "next-contentlayer/hooks";
 
 export const getStaticPaths = () => {
   const paths = pages.map((p) => ({
-    params: { slug: [p.slug] },
+    params: { slug: p.slug!.split(`/`) },
   }));
 
   return {
@@ -24,6 +24,9 @@ export const getStaticProps: GetStaticProps<{
   }
 
   let slug = !Array.isArray(params.slug) ? params.slug : params.slug.join(`/`);
+
+  console.log({ slug });
+
   const page = pages.find((doc) => doc!.slug === slug);
 
   if (!page) {
